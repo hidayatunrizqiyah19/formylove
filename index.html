@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, My Everything</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- LAYAR UTAMA KADO -->
+    <div id="gift-overlay" onclick="bukaKado()">
+        <div class="gift-box">🎁</div>
+        <p style="color: #ffb7d2; margin-top: 20px; font-family: sans-serif; letter-spacing: 1px;">buka ini yaaa😉...</p>
+    </div>
+
+    <!-- GERBANG CONTAINER UTAMA -->
+    <div class="container">
+        <p class="sub-title">my favorite chapter in life</p>
+        <h1 class="main-title">For My Favorite Person</h1>
+        <p class="tagline">You're the melody to my favorite song, the brightest star in my sky, and the best part of my everyday.</p>
+        
+        <div class="divider">🌸 🌸 🌸</div>
+
+        <!-- Kartu Pesan Surat -->
+        <div class="card">
+            <p class="card-caption">A NOTE FROM ME</p>
+            <h2>Happy Anniversary<br>My Love 🤍🤍 </h2>
+            <p class="letter-text">
+                Hi love,
+                Gak terasa ya waktu berjalan cepat, dan kita udah ngelewatin banyak hal bersama. 
+                Makasih banyak ya udah jadi partner yang selalu sabar, selalu ada di setiap keadaan aku, dan tegar banget ngadepi semua masalah bareng-bareng. 
+                I'm Very Gratefull to have u in my life.🫶🏻
+            </p>
+            <p class="signature">— Your Gf🤍</p>
+            
+            <!-- PEMUTAR MUSIK MINI (DUDUK MANIS DI DALAM CARD) -->
+            <div class="music-player">
+                <button id="music-btn" onclick="toggleMusik()">🎵</button>
+                <div class="music-info">
+                    <span class="song-title">BIRDS CALL YOUR NAME</span>
+                    <span class="artist-name">Nichole Rosii</span>
+                </div>
+                <audio id="bg-music" src="music/birdcallyourname.mp3" loop></audio>
+            </div> <!-- (PENTING!) Sekarang tag music-player sudah ditutup dengan aman -->
+        </div>
+
+       <div class="divider">🌸 🌸 🌸</div>
+
+        <!-- SECTION 2: GALERI FOTO (MENGGANTIKAN WHY I LOVE YOU) -->
+        <div class="section-gallery">
+            <h2 class="section-title" style="font-size: 38px; color: #FFC0D9;">Our Beautiful Memories</h2>
+            <p class="tagline">Every single second with you is my favorite memory</p>
+            
+            <div class="grid-gallery">
+                <!-- Foto 1 -->
+                <div class="gallery-item">
+                    <img src="images/foto1.jpeg" alt="Memories">
+                    <div class="photo-caption">My favorite smile ✨</div>
+                </div>
+                
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="images/foto2.jpeg" alt="Memories">
+                    <div class="photo-caption">My safe place 🤍</div>
+                </div>
+
+                <!-- Foto 3 (Bisa ditambah kalau mau) -->
+                <div class="gallery-item">
+                    <img src="images/foto3.jpeg" alt="Memories">
+                    <div class="photo-caption">With you, time stops 🕰️</div>
+                </div>
+
+                <!-- Foto 4 (Bisa ditambah kalau mau) -->
+                <div class="gallery-item">
+                    <img src="images/foto4.jpeg" alt="Memories">
+                    <div class="photo-caption">Forever and always with u ✨</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">🌸 🌸 🌸</div>
+
+        <!-- SECTION 3: A GARDEN GROWN -->
+        <div class="section-garden">
+            <p class="sub-title">Just between you and me</p>
+            <h2 class="section-title">The Flowers of My Feelings For You</h2>
+            <p class="tagline">Tap on a flower untuk dengerin semua pesan rahasia dari aku 💫🌸</p>
+
+            <div class="garden-buttons">
+                <button class="btn-flower" onclick="cekArtiBunga('🌹', 'Red Rose: I’m so grateful to have a partner like you, who is always patient and by my side.')">🌹</button>
+                <button class="btn-flower" onclick="cekArtiBunga('🌸', 'Cherry Blossom: always sehat ya sayang, jangan lupa makan yang teratur dan istirahat yang cukup ❤️')">🌸</button>
+                <button class="btn-flower" onclick="cekArtiBunga('🌻', 'Sunflower: Semangat terus ya menjalani hari-harinya, I am always proud of you! ✨ ❤️')">🌻</button>
+                <button class="btn-flower" onclick="cekArtiBunga('🌷', 'Tulip: Terima kasih sudah jadi rumah ternyaman buat aku. Let us grow old together, forever 🫶🏻')">🌷</button>
+            </div>
+            
+            <div id="flower-meaning" class="meaning-box">Klik salah satu bunga di atas...</div>
+        </div>
+
+        <div class="divider">🌸 🌸 🌸</div>
+
+<!-- SECTION MINI GAME: MATCHING CARDS -->
+        <div class="section-minigame">
+            <p class="sub-title">little mini game</p>
+            <h2 class="section-title">Find Our Matching Pairs!</h2>
+            <p class="tagline">Coba cocokan kartu yang sama. Kalau beda bakal nutup lagi, kalau pas bakal terbuka terus! 😉</p>
+
+            <!-- Papan Permainan Kartu (8 Kartu / 4 Pasang) -->
+            <div class="game-board" id="gameBoard">
+                <!-- Kartu akan di-generate otomatis via JavaScript biar posisinya acak -->
+            </div>
+
+            <div id="gameWinText" class="game-win-message"></div>
+        </div>
+
+<div class="interactive-tab-section">
+    
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="gantiTab(event, 'tab-message')">
+            <span class="tab-icon">✉️</span>
+            <span class="tab-label">Our Calendar</span>
+        </button>
+        <button class="tab-btn" onclick="gantiTab(event, 'tab-camera')">
+            <span class="tab-icon">📷</span>
+            <span class="tab-label">Camera</span>
+        </button>
+    </div>
+
+    <div class="tab-container-content">
+        ...
+    </div>
+
+
+    <div class="tab-container-content">
+        
+        <div id="tab-message" class="tab-content active">
+    <div class="card-message-tab">
+        <p class="card-caption">SPECIAL MOMENT</p>
+        <h2>Our Special Date ✨</h2>
+        
+        <!-- KARTU KALENDER NOVEMBER -->
+        <div class="calendar-card-container">
+            <div class="calendar-envelope">
+                <div class="calendar-header-title">November</div>
+                <div class="calendar-grid">
+                    <!-- Nama Hari -->
+                    <div class="cal-day-name">Sun</div>
+                    <div class="cal-day-name">Mon</div>
+                    <div class="cal-day-name">Tue</div>
+                    <div class="cal-day-name">Wed</div>
+                    <div class="cal-day-name">Thu</div>
+                    <div class="cal-day-name">Fri</div>
+                    <div class="cal-day-name">Sat</div>
+
+                    <!-- Deretan Anggal November (Asumsi November mulai Minggu/Senin, disesuaikan) -->
+                    <!-- Minggu pertama (Contoh: 1 Nov jatuh di Hari Minggu) -->
+                    <div class="cal-date">1</div>
+                    <div class="cal-date">2</div>
+                    <div class="cal-date">3</div>
+                    <div class="cal-date">4</div>
+                    <div class="cal-date">5</div>
+                    <div class="cal-date">6</div>
+                    <div class="cal-date">7</div>
+                    
+                    <div class="cal-date">8</div>
+                    <div class="cal-date special-date">9</div> <!-- 9 NOVEMBER TANGGAL JADIAN -->
+                    <div class="cal-date">10</div>
+                    <div class="cal-date">11</div>
+                    <div class="cal-date">12</div>
+                    <div class="cal-date">13</div>
+                    <div class="cal-date">14</div>
+
+                    <div class="cal-date">15</div>
+                    <div class="cal-date">16</div>
+                    <div class="cal-date">17</div>
+                    <div class="cal-date">18</div>
+                    <div class="cal-date">19</div>
+                    <div class="cal-date">20</div>
+                    <div class="cal-date">21</div>
+
+                    <div class="cal-date">22</div>
+                    <div class="cal-date">23</div>
+                    <div class="cal-date">24</div>
+                    <div class="cal-date">25</div>
+                    <div class="cal-date">26</div>
+                    <div class="cal-date">27</div>
+                    <div class="cal-date">28</div>
+
+                    <div class="cal-date">29</div>
+                    <div class="cal-date">30</div>
+                    <div class="cal-date empty"></div>
+                    <div class="cal-date empty"></div>
+                    <div class="cal-date empty"></div>
+                    <div class="cal-date empty"></div>
+                    <div class="cal-date empty"></div>
+                </div>
+                
+                <p class="calendar-caption-text">
+                    The day everything changed for the better. The best date in November, 9th. 🤍
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="tab-camera" class="tab-content">
+            <div class="section-camera-tab">
+                <div class="polaroid-frame">
+                    <img src="images/foto-dia.jpeg" alt="Beautiful Memories" class="camera-photo">
+                </div>
+                <div class="dad-message-box">
+                    <p style="font-size: 14px; color: #FFC0D9; margin-bottom: 15px; font-weight: bold; text-align: center;">
+                        "Scan yaaa😉"
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+        <!-- FOOTER DI TENGAH -->
+        <footer class="love-footer">
+            <p>Made with 💗 for my Spesial Person</p>
+            <p class="copyright">© 2026 — Countless memories to come</p>
+        </footer>
+
+    </div> <!-- PENUTUP UTAMA CONTAINER -->
+
+    <!-- Script ditaruh di luar container agar aman saat efek fade-in berjalan -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
